@@ -1,0 +1,15 @@
+<h1 style="text-align: center;">{{title}}</h1>
+
+
+
+<div class="container">
+  <form action="">
+    <input type="number" name="numberOne" [(ngModel)]="numberOne">
+    <input type="number" name="numberTwo" [(ngModel)]="numberTwo" style="margin-right: 20px;">
+    Result: <input type="text" value="{{result}}">
+    <br>
+    <br>
+    <input class="btn btn-primary" type="submit" value="+" (click)="sum()">
+    <input class="btn btn-danger" type="submit" value="-" (click)="rest()">
+  </form>
+</div>

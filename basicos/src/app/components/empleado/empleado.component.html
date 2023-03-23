@@ -1,0 +1,34 @@
+<h2>Dates of workers</h2>
+
+<h3>Current worker: {{currentWorker}}</h3>
+
+<p>This person works as a {{puesto}}, in the company {{empresa}} and his level inside of this corporation is {{rango}}.
+    He is {{edad}} years old.
+</p>
+<p>{{cambio}}</p>
+<p>{{currentWorker}} has {{getExp()}} year of experience</p>
+
+<p>The person's height is like a <span style="color: blue;">{{altura > 1.80 ? "tower" : "gnomo"}}</span></p>
+
+Introduce your weight in kilograms: <input type="text" #kilograms  (keyup)="habilitarBoton()">
+<br>
+<br>
+<input type="button" value="Send" (click)="getPeso(kilograms.valueAsNumber)" [disabled]="boton">
+<br>
+<br>
+<p>Your weight is {{kilograms.value}} {{resultadoPeso}}</p>
+<br>
+<p>Type something here: <input type="text" #typing (keyup)="0"></p>
+
+<h4>{{typing.value}}</h4>
+
+<div style="display: flex;">
+    <button style="display: block; margin-right: 20px; " (click)="cambiaColor()">{{login}}</button>
+    <div style="width: 20px; height: 20px; display: block;" [style.background-color]="color"></div>
+</div>
+<br>
+<input type="radio" value="1" name="booleano" (click)="cambiar($event)">
+<input type="radio" value="2" name="booleano" (click)="cambiar($event)">
+<p>This is the value of those radio buttons: {{valor}}</p>
+<p>Type something here: <input type="text" [(ngModel)]="two_binding"></p>
+<p>{{two_binding}}</p>
