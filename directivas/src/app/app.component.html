@@ -2,8 +2,8 @@
 <br>
 <br>
 <br>
+<!-- Directiva ngModel -->
 <form action="">
-
   Name: <input type="text" name="nombre" [(ngModel)]="nombre">
   <br>
   Surname: <input type="text">
@@ -12,5 +12,25 @@
 </form>
 
 <br>
+<!-- Directiva if else -->
+<h3 *ngIf="estaRegistrado; else sinRegistrar">{{mensaje}}</h3>
 
-<h3 *ngIf="estaRegistrado">{{mensaje}}</h3>
+<ng-template #sinRegistrar>
+  <p>No hay nadie registrado</p>
+</ng-template>
+
+<br>
+
+<!-- Directiva for -->
+<ul>
+  <h3>Lista de peliculas</h3>
+  <li *ngFor="let item of listaPeliculas">
+    <i>{{item.pelicula}}</i>
+  </li>
+</ul>
+<ul>
+  <h3>Lista de peliculas con index</h3>
+  <li *ngFor="let item of listaPeliculas; let i = index">
+    <i><span>{{i + 1}}. </span>{{item.pelicula}}</i>
+  </li>
+</ul>
