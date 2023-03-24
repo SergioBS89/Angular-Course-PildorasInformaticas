@@ -1,0 +1,27 @@
+<form action="">
+    Nombre: <input type="text" name="nombre" [(ngModel)]="nombre">
+    Apellido: <input type="text" name="apellido" [(ngModel)]="apellido">
+    Edad: <input type="text" name="edad" [(ngModel)]="edad">
+    Nacionalidad: <input type="text" name="nacionalidad" [(ngModel)]="nacionalidad">
+    <input type="button" value="save" (click)="saveDates()">
+</form>
+
+
+
+
+<h3>Lista de personas</h3>
+
+<ul>
+    <li *ngFor="let item of personas">
+
+        <i><span style="font-weight: bold;">Nombre: </span>{{item.nombre}} </i>
+        <br>
+        <i><span style="font-weight: bold;">Apellido: </span>{{item.apellido}} </i>
+        <br>
+        <i><span style="font-weight: bold;">Edad: </span>{{item.edad}} </i>
+        <br>
+        <i><span style="font-weight: bold;">Nacionalidad: </span>{{item.nacionalidad}} </i>
+        <br>
+        <br>
+    </li>
+</ul>

@@ -34,3 +34,22 @@
     <i><span>{{i + 1}}. </span>{{item.pelicula}}</i>
   </li>
 </ul>
+<br>
+<!-- Directiva ngStyle (se crea una condicion) -->
+<input type="submit" value="I tu est del barça?" (click)="yoSocDelBarsa()">
+
+<h2><span [ngStyle]="{color: barsa == false ? 'black' : 'blue'}">Visca el </span><span
+    [ngStyle]="{color: barsa == false ? 'black' : 'red'}">BARÇA!!!</span></h2>
+
+<!-- Directiva ng Class -->
+
+<p [ngClass]="{probandoDirectiva: putaRM == 'puta real madrid'}">Si escribes "puta real madrid" voy a crecer!</p>
+<input type="text" [(ngModel)]="putaRM">
+<br>
+<br>
+<br>
+<br>
+
+<!-- Ejercicio con directivas -->
+
+<app-persona></app-persona>

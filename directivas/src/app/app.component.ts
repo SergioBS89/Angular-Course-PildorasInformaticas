@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
   title = 'Directivas Angular';
 
   mensaje: any;
@@ -29,5 +30,17 @@ export class AppComponent {
     { pelicula: "La liga de la justicia" },
     { pelicula: "Harry Potter" },
   ]
+
+  //Directiva style
+
+  barsa:boolean=false
+
+  yoSocDelBarsa() {
+    this.barsa = true
+    }
+  // Directiva ng class
+putaRM:string = ''
+
+
 
 }
