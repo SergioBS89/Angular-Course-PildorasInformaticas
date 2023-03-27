@@ -22,9 +22,9 @@ export class AppComponent {
 
   //USANDO DIRECTIVA FOR
 
-  // listaPeliculas: object[]
+  // listaPeliculas: array de object[] (como  si fuera una clase)
   listaPeliculas = [
-    { pelicula: "La guerra de las galaxias" },
+    { pelicula: "La guerra de las galaxias"},
     { pelicula: "El señor de los anillos" },
     { pelicula: "La jungla de cristal" },
     { pelicula: "La liga de la justicia" },
