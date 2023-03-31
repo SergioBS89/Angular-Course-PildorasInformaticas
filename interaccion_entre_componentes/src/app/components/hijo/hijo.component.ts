@@ -10,6 +10,6 @@ export class HijoComponent {
 
   //PARA ESTE EJERCICIO, DESABILITAMOS EL "strictPropertyInitialization" y asi evitar tener que inicializar variables. (file tsconfig.json)
 
-  //DIRECTIVA @INPUT
+  //DIRECTIVA @INPUT (recibomos datos del padre)
   @Input() itemParaCompHijo : string
 }

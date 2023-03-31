@@ -1,0 +1,9 @@
+<h3 class="text-info text-center">Componente 1</h3>
+<br>
+<div class="container text-center">
+    <form>
+        <label for="texto1">Escribe algo: </label>
+        <input type="text" name="texto1" #text>
+        <button class="btn btn-primary" (click)="sendTextoToFather(text.value)">Envia</button>
+    </form>
+</div>
