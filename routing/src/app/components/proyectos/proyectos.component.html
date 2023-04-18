@@ -1,1 +1,25 @@
-<p>proyectos works!</p>
+<br>
+<br>
+<br>
+<br>
+<div class="container container-fluid col-6">
+
+    <table class="table table-dark table-striped table-bordered">
+        <thead>
+            <tr>
+                <th class="col-6">Nombre del proyecto</th>
+                <th class="col-6">Tecnología usada</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let item of listaProyectos">
+            <tr>
+                <td>{{item.nombre}}</td>
+                <td>{{item.tecnologia}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+    <br>
+    <button class="btn btn-primary" (click)="crearPro()">Crear nuevo proyecto</button>
+</div>

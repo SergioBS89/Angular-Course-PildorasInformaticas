@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
+import { Proyecto } from './proyecto.model';
+import { ServiceProyectsService } from 'src/app/services/service-proyects.service';
 
 @Component({
   selector: 'app-proyectos',
@@ -7,4 +10,14 @@ import { Component } from '@angular/core';
 })
 export class ProyectosComponent {
 
+  //Inyecto la clase router para usar el routing.navigate
+  constructor(private service : ServiceProyectsService, private router : Router){}
+
+  listaProyectos = this.service.listaProyectos
+
+  //Boton para volver a crear nuevo proyecto
+  crearPro() {
+    this.router.navigate(['/add-project'])
+  }
+   
 }

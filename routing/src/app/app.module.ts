@@ -4,30 +4,33 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProyectosComponent } from './components/proyectos/proyectos.component';
-import { AcercaComponent } from './components/acerca/acerca.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { ServiceProyectsService } from './services/service-proyects.service';
+import { AddProjectComponent } from './components/add-project/add-project.component';
 
 //ENRUTANDO NUESTRA APP
 const appRutas: Routes=[
 {path:'proyectos', component: ProyectosComponent},
-{path:'acercaDeMi', component: AcercaComponent},
+{path:'add-project', component: AddProjectComponent},
 {path:'contacto', component: ContactoComponent}
 ]
 @NgModule({
   declarations: [
     AppComponent,
+    AddProjectComponent,
     ProyectosComponent,
-    AcercaComponent,
     ContactoComponent
   ],
   // IMPORTANTE IMPORTAR EL ROUTER MODUL    
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule
+    RouterModule.forRoot(appRutas),
+    FormsModule
   ],
-  providers: [],
+  providers: [ServiceProyectsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

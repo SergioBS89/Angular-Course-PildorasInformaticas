@@ -7,7 +7,7 @@ export class Servicio2Service {
 
   constructor() { }
 
-  //ARRAY DE DATOS PARA INJECTARLO  A TRVES DE UN SERVICIO
+  //ARRAY DE DATOS PARA INJECTARLO  A TRAVES DE UN SERVICIO
   nombresFutbolistas : string[]=["Toti", "Mascherano", "Messi", "Ronaldo"]
 
 }

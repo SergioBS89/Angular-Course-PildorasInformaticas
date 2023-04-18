@@ -4,18 +4,23 @@
   </a>
   <ul class="navbar-nav">
     <li class="nav-item active" style="margin-left: 15px;">
-      <a class="navbar-brand" href="#">Proyectos</a>
+      <a class="navbar-brand" style="cursor: pointer" (click)="veAgregarProyectos()">Agregar nuevo proyecto</a>
     </li>
     <li class="nav-item">
-      <a class="navbar-brand" href="#" style="margin-left: 15px;">Acerca de mí</a>
+      <a class="navbar-brand" (click)="verMisProyectos()" style="margin-left: 15px; cursor: pointer">Mis proyectos</a>
     </li>
     <li class="nav-item">
-      <a class="navbar-brand" href="#" style="margin-left: 15px;">Contacto</a>
+      <a class="navbar-brand" (click)="verContacto()" style="margin-left: 15px; cursor: pointer">Contacto</a>
+    <li class="text-md-center">
+      <h3 class="text-info text-center" style="margin-left: 200px; ">Bienvenido a mi app de proyectos</h3>
+    </li>
+    <li>
+
     </li>
   </ul>
 </nav>
-<br>
-<br>
-<br>
-<br>
-<h1 class="text-info text-center">Welcome to my application!!</h1>
+
+
+
+<!-- ENABLED ROUTING -->
+<router-outlet></router-outlet>
