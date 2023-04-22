@@ -1,14 +1,16 @@
 export class Proyecto {
 
-    nombre: string = "";
-    tecnologia: string = "";
+    namePro: string = "";
+    tecnology: string = "";
+    year: number = 0;
 
 
 
-    constructor(name: string, tecnologia: string) {
+    constructor(name: string, tecnology: string, year: number) {
 
-        this.nombre = name;
-        this.tecnologia = tecnologia;
+        this.namePro = name;
+        this.tecnology = tecnology;
+        this.year = year;
     }
 
 }

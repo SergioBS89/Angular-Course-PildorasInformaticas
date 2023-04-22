@@ -8,12 +8,13 @@ export class ServiceProyectsService {
 
   constructor() { }
 
- 
-
-  //Array de proyectos para inyectarlos en la tabla del HOME
+  //Array of projects to inyect in different places
   listaProyectos: Proyecto[] = []
 
-  agregarListaProyectos(nombre:string, tecnologia:string) {  
-    this.listaProyectos.push(new Proyecto(nombre,tecnologia))
+  addToList(name:string, tecnology:string, year : number) {  
+    this.listaProyectos.push(new Proyecto(name,tecnology, year))
     }
+  
+   //This variable changes its value depending if the user is creating or updating a project
+   createOrModify: string = "en proceso";
 }

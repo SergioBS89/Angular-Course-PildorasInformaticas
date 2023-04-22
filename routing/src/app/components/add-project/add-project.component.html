@@ -3,22 +3,21 @@
 <br>
 <br>
 <div class="continer container-fluid col-10">
-    <h2>Crea un nuevo proyecto:</h2>
+    <h2>Add a new project:</h2>
     <br>
     <form action="" class="text-info text-xl-start" style="position: relative">
-        <label for="nombre">Nombre del proyecto:</label>
-        <input style="position: absolute; left: 200px;" type="text" name="nombre" [(ngModel)]="nombre">
+        <label for="nombre">Project name:</label>
+        <input style="position: absolute; left: 200px;" type="text" name="namePro" [(ngModel)]="namePro">
         <br>
         <br>
-        <label for="tecnologia">Tecnologia usada:</label>
-        <input style="position: absolute; left: 200px;" type="text" name="tecnologia" [(ngModel)]="tecnologia">
+        <label for="tecnologia">Tecnology used:</label>
+        <input style="position: absolute; left: 200px;" type="text" name="tecnology" [(ngModel)]="tecnology">
         <br>
         <br>
-        <input type="submit" class="btn btn-dark" value="Crear" (click)="agregarListaProyectos()">
+        <label for="tecnologia">Year:</label>
+        <input style="position: absolute; left: 200px;" type="text" name="year" [(ngModel)]="year">
+        <br>
+        <br>
+        <input type="submit" class="btn btn-dark" value="{{createOrModify}}" (click)="addNewProject()">
     </form>
-    <br>
-    <br>
-    <button class="btn btn-primary" (click)="verPro()">Ver lista de proyectos</button>
-    <br>
-    <br>
   </div>

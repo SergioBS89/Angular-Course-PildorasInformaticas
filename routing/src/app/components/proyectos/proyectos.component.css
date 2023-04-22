@@ -1,0 +1,6 @@
+/* Styles to import icons bootstrap */
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+i{
+    cursor: pointer;
+}

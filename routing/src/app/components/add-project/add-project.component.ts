@@ -9,25 +9,34 @@ import { ServiceProyectsService } from 'src/app/services/service-proyects.servic
 })
 export class AddProjectComponent {
 
-   //Inyecto la clase router para usar el routing.navigate
+
+   //Inyection router class to enabled routing
    constructor(private router: Router, private service : ServiceProyectsService) { }
 
-   //Retorna a una nueva ventana 
+   //Return to a new window
    verPro() {
      this.router.navigate(['/proyectos'])
    }
  
-   nombre : string = ""
-   tecnologia : string = ""
+   namePro: string = ""
+   tecnology : string = ""
+   year : number = 0
    
-   //LLAMADA AL SERVICIO PARA COMUNICAR LOS DATOS ENTRE COMPONENTES
-   agregarListaProyectos(){
-    if(this.nombre.length > 0 && this.tecnologia.length > 0){
-     this.service.agregarListaProyectos(this.nombre,this.tecnologia)
-     alert("El proyecto ha sido creado")
-    }else{
-      alert("Por favor rellene ambos campos")
+   //Call to the service to communicate to each other
+   addNewProject(){
+    if(this.namePro.length > 0 && this.tecnology.length > 0 && this.year != 0){
+     this.service.addToList(this.namePro,this.tecnology, this.year )
+     this.router.navigate(['/proyectos'])
+    }
+    else if(this.year == 0){
+      alert("Year fild cannot be 0")
+    }
+    else{
+      alert("Please refilled all the fields")
     }
    }
+
+    //This variable take the value from the service to show create or update
+    createOrModify: string = this.service.createOrModify;
  
 }

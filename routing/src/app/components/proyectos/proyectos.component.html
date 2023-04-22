@@ -7,19 +7,27 @@
     <table class="table table-dark table-striped table-bordered">
         <thead>
             <tr>
-                <th class="col-6">Nombre del proyecto</th>
-                <th class="col-6">Tecnología usada</th>
+                <th class="col-4">Project name</th>
+                <th class="col-4">Tecnology used</th>
+                <th class="col-3">Year</th>
+                <th class="col-1">Update</th>
             </tr>
         </thead>
         <tbody *ngFor="let item of listaProyectos">
             <tr>
-                <td>{{item.nombre}}</td>
-                <td>{{item.tecnologia}}</td>
+                <td>{{item.namePro}}</td>
+                <td>{{item.tecnology}}</td>
+                <td>{{item.year}}</td>
+                <td><i class="bi bi-pencil-fill" (click)="updateButton()"></i></td>
             </tr>
         </tbody>
     </table>
 
     <br>
     <br>
-    <button class="btn btn-primary" (click)="crearPro()">Crear nuevo proyecto</button>
+    <br>
+    <br>
+    <br>
+    <br>
+    <button class="btn btn-primary" (click)="crearPro()">Add new project</button>
 </div>
