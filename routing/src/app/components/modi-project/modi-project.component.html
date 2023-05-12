@@ -3,7 +3,7 @@
 <br>
 <br>
 <div class="continer container-fluid col-10">
-    <h2>Add a new project:</h2>
+    <h2>Update project:</h2>
     <br>
     <form action="" class="text-info text-xl-start" style="position: relative">
         <label for="nombre">Project name:</label>
@@ -11,13 +11,14 @@
         <br>
         <br>
         <label for="tecnologia">Tecnology used:</label>
-        <input style="position: absolute; left: 200px;" type="text" name="tecnology" [(ngModel)]="technology">
+        <input style="position: absolute; left: 200px;" type="text" name="tecnology" [(ngModel)]="tecnology">
         <br>
         <br>
         <label for="tecnologia">Year:</label>
         <input style="position: absolute; left: 200px;" type="text" name="year" [(ngModel)]="year">
         <br>
         <br>
-        <input type="submit" class="btn btn-dark" value="Create" (click)="addNewProject()">
+        <input type="submit" class="btn btn-dark" value="Update" (click)="addNewProject()">
     </form>
   </div>
+

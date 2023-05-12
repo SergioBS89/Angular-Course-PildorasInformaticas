@@ -7,24 +7,23 @@
     <table class="table table-dark table-striped table-bordered">
         <thead>
             <tr>
+                <th class="col-1">Id</th>
                 <th class="col-4">Project name</th>
                 <th class="col-4">Tecnology used</th>
-                <th class="col-3">Year</th>
+                <th class="col-2">Year</th>
                 <th class="col-1">Update</th>
             </tr>
         </thead>
         <tbody *ngFor="let item of listaProyectos">
             <tr>
+                <td>{{item.id}}</td>
                 <td>{{item.namePro}}</td>
                 <td>{{item.tecnology}}</td>
                 <td>{{item.year}}</td>
-                <td><i class="bi bi-pencil-fill" (click)="updateButton()"></i></td>
+                <td><a [routerLink]="['/update-project', item.id]"><i class="bi bi-pencil-fill"></i></a></td>
             </tr>
         </tbody>
     </table>
-
-    <br>
-    <br>
     <br>
     <br>
     <br>

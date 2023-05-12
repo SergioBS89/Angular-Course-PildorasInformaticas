@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { Proyecto } from './proyecto.model';
 import { ServiceProyectsService } from 'src/app/services/service-proyects.service';
 
 @Component({
@@ -18,11 +17,8 @@ export class ProyectosComponent {
   //Boton para volver a crear nuevo proyecto
   crearPro() {
     this.router.navigate(['/add-project'])
-    this.service.createOrModify="Create"
   }
-  //Update the value of the button in the service
-  updateButton() {
-    this.service.createOrModify = "Update"
-    }
+
+    indexProjects = this.service.indexProject
 
 }

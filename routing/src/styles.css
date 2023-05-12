@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+
+.alertOwnStyle{
+    position: fixed !important;
+    text-align: center;
+    width: 40%;
+    top: 10%;
+    right: 50%;
+    transform: translateX(50%);
+}

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Proyecto } from '../components/proyectos/proyecto.model';
+import { Project } from '../classes/proyecto.model';
 
 @Injectable({
   providedIn: 'root'
@@ -9,12 +9,14 @@ export class ServiceProyectsService {
   constructor() { }
 
   //Array of projects to inyect in different places
-  listaProyectos: Proyecto[] = []
+  listaProyectos: Project[] = []
 
+  //Index of projects is incremented every time that a project is added
+  indexProject : number = 0
+
+  //TODO CREAR CONSTRUCTOR CON ID E INCREMENTARLO AQUI
   addToList(name:string, tecnology:string, year : number) {  
-    this.listaProyectos.push(new Proyecto(name,tecnology, year))
+    this.indexProject++
+    this.listaProyectos.push(new Project(this.indexProject,name,tecnology, year))
     }
-  
-   //This variable changes its value depending if the user is creating or updating a project
-   createOrModify: string = "en proceso";
 }

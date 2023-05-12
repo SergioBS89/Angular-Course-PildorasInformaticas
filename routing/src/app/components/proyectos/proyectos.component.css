@@ -4,3 +4,7 @@
 i{
     cursor: pointer;
 }
+a{
+    text-decoration: none;
+    color: rgb(231, 64, 64);
+}
