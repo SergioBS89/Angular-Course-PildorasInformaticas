@@ -9,16 +9,19 @@ import { ServiceProyectsService } from 'src/app/services/service-proyects.servic
 })
 export class ProyectosComponent {
 
+
   //Inyecto la clase router para usar el routing.navigate
   constructor(private service: ServiceProyectsService, private router: Router) { }
 
-  listaProyectos = this.service.listaProyectos
+  listProjects = this.service.listProjects
 
   //Boton para volver a crear nuevo proyecto
   crearPro() {
     this.router.navigate(['/add-project'])
   }
 
-    indexProjects = this.service.indexProject
+  deleteProject(idProject: number) {
+   this.service.deleteProject(idProject)
+  }
 
 }

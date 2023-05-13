@@ -8,25 +8,25 @@
         <thead>
             <tr>
                 <th class="col-1">Id</th>
-                <th class="col-4">Project name</th>
+                <th class="col-3">Project name</th>
                 <th class="col-4">Tecnology used</th>
                 <th class="col-2">Year</th>
                 <th class="col-1">Update</th>
+                <th class="col-1">Delete</th>
             </tr>
         </thead>
-        <tbody *ngFor="let item of listaProyectos">
+        <tbody *ngFor="let item of listProjects">
             <tr>
                 <td>{{item.id}}</td>
                 <td>{{item.namePro}}</td>
                 <td>{{item.tecnology}}</td>
                 <td>{{item.year}}</td>
-                <td><a [routerLink]="['/update-project', item.id]"><i class="bi bi-pencil-fill"></i></a></td>
+                <td><a [routerLink]="['/update-project', item.id]"><i class="bi bi-pencil-fill"></i></a></td>  <!-- This code send by url the id of every project -->
+                <td><a (click)="deleteProject(item.id)"><i class="bi bi-trash-fill"></i></a></td>  <!--This icon delete the project -->
             </tr>
         </tbody>
     </table>
     <br>
     <br>
-    <br>
-    <br>
-    <button class="btn btn-primary" (click)="crearPro()">Add new project</button>
+    <button class="btn btn-info" (click)="crearPro()">Add new project</button>
 </div>

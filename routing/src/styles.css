@@ -4,7 +4,11 @@
     position: fixed !important;
     text-align: center;
     width: 40%;
-    top: 10%;
+    top: 9%;
     right: 50%;
     transform: translateX(50%);
+}
+
+.navbar-nav{
+    margin: 8px 0;
 }
