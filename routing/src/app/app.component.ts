@@ -9,16 +9,19 @@ import { AlertService } from './services/alert.service';
 })
 export class AppComponent {
 
-  //Inyecto la clase router para usar el routing.navigate
+  /**
+   * Inyection of services and routes
+   * @param router 
+   * @param alertService 
+   */
   constructor(private router: Router, private alertService : AlertService) { }
 
-  //CREANDO ROUTING PARA LOS BOTONES DEL HEADER
-
-  seeContact() {
-    this.router.navigate(['/contact'])
-  }
+  
+/**
+ * Functions to use the routing with the header buttons
+ */
   seeMysProjects() {
-    this.router.navigate(['/projects'])
+    this.router.navigate(['/'])
   }
   seeAddProject() {
     this.router.navigate(['/add-project'])
@@ -29,7 +32,7 @@ export class AppComponent {
   textAlert : string = ""  
    //Color alert 
    colorBackgroundAlert = ""
-  //This is the listener of the alert, so when the user press the button (in this case the validation of field creating a new project), it shows the alert
+  //This is the listener of the alert, so when the user press the button the alert is displayed
   ngOnInit(){
     this.alertService.alert$.subscribe((result : any) => {
       this.showAlert = true

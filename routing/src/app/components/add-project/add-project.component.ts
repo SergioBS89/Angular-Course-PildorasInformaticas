@@ -14,21 +14,22 @@ export class AddProjectComponent {
    //Inyection router class to enabled routing, and both services 
    constructor(private router: Router, private service : ServiceProyectsService, private alertService : AlertService) { }
 
-   //Return to a new window
-   verPro() {
-     this.router.navigate(['/projects'])
-   }
  
+   /**
+    * List of properties class projects
+    */
    namePro: string = ""
    technology : string = ""
    year : number = 0
    
-   //Call to the service to communicate to each other
+   /**
+    * Call to the service to communicate to each other
+    */
    addNewProject(){
     if(this.namePro.length > 0 && this.technology.length > 0 && this.year != 0){
      this.service.addToList(this.namePro,this.technology, this.year )
      this.alertService.showAlert("Project created successfully", 3000, "alert-primary") //Method to call the alert
-     this.router.navigate(['/projects'])
+     this.router.navigate(['/'])
     }
     else if(this.namePro.length == 0){
       this.alertService.showAlert("The field 'Project name' should be refilled", 4000, "alert-warning") //Method to call the alert

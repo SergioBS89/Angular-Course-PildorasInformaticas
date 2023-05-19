@@ -5,7 +5,10 @@ import { Alert } from '../classes/alert.model';
 @Injectable({
   providedIn: 'root'
 })
-// THIS SERVICES MANAGE THE ALERT
+
+/**
+ * THIS SERVICES MANAGE THE ALERT
+ */
 export class AlertService {
 
   //Observable 
@@ -15,7 +18,6 @@ export class AlertService {
   constructor() { }
 
   showAlert(message: string, time: number, style: string) {
-
     //passing by parameter an object with the message, time and style to the alert
     this.alertSource.next(new Alert(message, time, style))
   }

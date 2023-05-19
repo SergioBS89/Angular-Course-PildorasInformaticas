@@ -17,18 +17,18 @@ export class ModiProjectComponent {
    * @param activeRoute This enebles de actives routes to get valued from the url
    * @param alertService This inyects the service alert
    */
-  constructor(private router: Router, private service: ServiceProyectsService, private activeRoute: ActivatedRoute, private alertService : AlertService) { }
+  constructor(private router: Router, private service: ServiceProyectsService, private activeRoute: ActivatedRoute, private alertService: AlertService) { }
 
   idProject: number = 0
 
-  ngOnInit() : void {
-    
+  ngOnInit(): void {
+
     /**
      * This get the id of the project from the url to be modificated
      */
     this.idProject = this.activeRoute.snapshot.params['id']
-    
-    let project : Project = this.service.getProject(this.idProject)
+
+    let project: Project = this.service.getProject(this.idProject)
 
     this.namePro = project.namePro
     this.technology = project.tecnology
@@ -36,35 +36,30 @@ export class ModiProjectComponent {
   }
 
   /**
-   * This function retuns to the view projects
+   * List of properties of entity project
    */
-  verPro() {
-    this.router.navigate(['/projects'])
-  }
-
-  //List of properties of entity project
   namePro: string = ""
   technology: string = ""
   year: number = 0
 
- /**
-  * Call the service to communicate to each other
-  */
-  updateProject(){
-    if(this.namePro.length > 0 && this.technology.length > 0 && this.year != 0){
-     this.service.setProject(new Project(this.idProject, this.namePro,this.technology, this.year))
-     this.alertService.showAlert("Project updated", 3000, "alert-primary") //Method to call the alert
-     this.router.navigate(['/projects'])
+  /**
+   * Call the service to communicate to each other
+   */
+  updateProject() {
+    if (this.namePro.length > 0 && this.technology.length > 0 && this.year != 0) {
+      this.service.setProject(new Project(this.idProject, this.namePro, this.technology, this.year))
+      this.alertService.showAlert("Project updated", 3000, "alert-primary") //Method to call the alert
+      this.router.navigate(['/'])
     }
-    else if(this.namePro.length == 0){
+    else if (this.namePro.length == 0) {
       this.alertService.showAlert("The field 'Project name' should be refilled", 4000, "alert-warning") //Method to call the alert
     }
-    else if(this.technology.length == 0){
+    else if (this.technology.length == 0) {
       this.alertService.showAlert("The field 'Technology used' should be refilled", 4000, "alert-warning") //Method to call the alert
     }
-    else{
+    else {
       this.alertService.showAlert("The field 'Year' cannot be 0", 4000, "alert-danger") //Method to call the alert
     }
-   }
+  }
 
 }

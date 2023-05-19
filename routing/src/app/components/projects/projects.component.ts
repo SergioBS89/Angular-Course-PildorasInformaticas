@@ -4,10 +4,10 @@ import { ServiceProyectsService } from 'src/app/services/service-proyects.servic
 
 @Component({
   selector: 'app-proyectos',
-  templateUrl: './proyectos.component.html',
-  styleUrls: ['./proyectos.component.css']
+  templateUrl: './projects.component.html',
+  styleUrls: ['./projects.component.css']
 })
-export class ProyectosComponent {
+export class ProjectsComponent {
 
 
   //Inyecto la clase router para usar el routing.navigate
@@ -15,8 +15,10 @@ export class ProyectosComponent {
 
   listProjects = this.service.listProjects
 
-  //Boton para volver a crear nuevo proyecto
-  crearPro() {
+  /**
+   * Function to go to the screen add new project
+   */
+  addNewProject() {
     this.router.navigate(['/add-project'])
   }
 
