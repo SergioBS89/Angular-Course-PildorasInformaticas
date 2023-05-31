@@ -26,15 +26,15 @@ export class ProjectsComponent {
    */
   ngOnInit() {
     this.service.getAllProjects().subscribe(myProjects => {
-      this.listProjects = Object.values(myProjects)
-      this.service.updateListProjects(this.listProjects)
+      this.service.listProjects = Object.values(myProjects)
+
     })
   }
 
     /**
    * This array save the list of projects from the service dinamically in the ngOnInit
    */
-    listProjects: Project[] = []
+    listProjects = this.service.listProjects
 
   /**
    * Function to go to the screen add new project
