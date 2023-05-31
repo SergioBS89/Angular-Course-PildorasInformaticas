@@ -12,30 +12,20 @@ export class ServiceProyectsService {
 
   //Array of projects 
   listProjects: Project[] = []
-  // = [{
-  //   id: 1,
-  //   namePro: "Course Angular",
-  //   tecnology: "Angular",
-  //   year: 2023
-  // },
-  // {
-  //   id: 2,
-  //   namePro: "Api rest harry potter",
-  //   tecnology: "Spring Boot",
-  //   year: 2022
-  // },
-  // {
-  //   id: 3,
-  //   namePro: "Portfolio web",
-  //   tecnology: "Html,Css and Js",
-  //   year: 2021
-  // },
-  // {
-  //   id: 4,
-  //   namePro: "Junit course",
-  //   tecnology: "Java",
-  //   year: 2023
-  // }]
+  
+  /**
+   * Get projects from the database as Observable
+   */
+  getAllProjects(){
+
+    return this.database.getProjectsFromFireBase()
+  }
+
+  updateListProjects(projects : Project[]){
+    this.listProjects = projects
+  
+  }
+
 
   /**
    * Add to the array a new project increasindg in one the id property
