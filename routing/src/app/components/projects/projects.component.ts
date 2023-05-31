@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { Project } from 'src/app/classes/proyecto.model';
 import { ServiceProyectsService } from 'src/app/services/service-proyects.service';
 
 @Component({
@@ -10,10 +11,30 @@ import { ServiceProyectsService } from 'src/app/services/service-proyects.servic
 export class ProjectsComponent {
 
 
-  //Inyecto la clase router para usar el routing.navigate
+  /**
+   * Inyection of services
+   * @param service 
+   * @param router
+   */
   constructor(private service: ServiceProyectsService, private router: Router) { }
 
-  listProjects = this.service.listProjects
+
+
+  /**
+   * With this we get the list of projects from the database dinamically 
+   * @ Object.values() to become an array the data form BBDD
+   */
+  ngOnInit() {
+    this.service.getAllProjects().subscribe(myProjects => {
+      this.listProjects = Object.values(myProjects)
+      this.service.updateListProjects(this.listProjects)
+    })
+  }
+
+    /**
+   * This array save the list of projects from the service dinamically in the ngOnInit
+   */
+    listProjects: Project[] = []
 
   /**
    * Function to go to the screen add new project
@@ -23,7 +44,7 @@ export class ProjectsComponent {
   }
 
   deleteProject(idProject: number) {
-   this.service.deleteProject(idProject)
+    this.service.deleteProject(idProject)
   }
 
 }
