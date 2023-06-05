@@ -20,27 +20,25 @@ export class ProjectsComponent {
 
 
 
-  /**
-   * With this we get the list of projects from the database dinamically 
-   * @ Object.values() to become an array the data form BBDD
-   */
-  ngOnInit() {
-    this.service.getAllProjects().subscribe(myProjects => {
-      this.service.listProjects = Object.values(myProjects)
-
-    })
-  }
 
     /**
    * This array save the list of projects from the service dinamically in the ngOnInit
    */
-    listProjects = this.service.listProjects
+  ngOnInit(){
+    this.listProjects = this.service.listProjects
+    if(this.service.listProjects.length == 0){
+      this.service.getAllProjects().subscribe(myProjects => {
+        this.listProjects = Object.values(myProjects)
+        })
+    }
+  }
+    listProjects: Project[] = []
 
   /**
    * Function to go to the screen add new project
    */
   addNewProject() {
-    this.router.navigate(['/add-project'])
+    this.router.navigate([''])
   }
 
   deleteProject(idProject: number) {

@@ -21,10 +21,10 @@ export class AppComponent {
  * Functions to use the routing with the header buttons
  */
   seeMysProjects() {
-    this.router.navigate(['/'])
+    this.router.navigate(['/projects'])
   }
   seeAddProject() {
-    this.router.navigate(['/add-project'])
+    this.router.navigate(['/'])
   }
 
   //LOGICAL CODE TO USE ALERT POPUP

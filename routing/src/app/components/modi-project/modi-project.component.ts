@@ -21,18 +21,27 @@ export class ModiProjectComponent {
 
   idProject: number = 0
 
+  listProjects: Project[] = []
+
   ngOnInit(): void {
 
-    /**
-     * This get the id of the project from the url to be modificated
-     */
-    this.idProject = this.activeRoute.snapshot.params['id']
+    this.service.getAllProjects().subscribe(myProjects => {
+      this.service.listProjects = Object.values(myProjects)
+      })
+      /**
+       * This get the id of the project from the url to be modificated
+       */
+      this.idProject = this.activeRoute.snapshot.params['id']
 
-    let project: Project = this.service.getProject(this.idProject)
+      let project: Project = this.service.getProject(this.idProject)    
 
-    this.namePro = project.namePro
-    this.technology = project.tecnology
-    this.year = project.year
+      //This assign the values of the current project 
+      this.namePro = project.namePro
+      this.technology = project.tecnology
+      this.year = project.year
+      this.listProjects.forEach(element => {
+        console.log(element)
+      });
   }
 
   /**
@@ -44,12 +53,13 @@ export class ModiProjectComponent {
 
   /**
    * Call the service to communicate to each other
+   * @idProject this is the id of each project, to set its values
    */
   updateProject() {
     if (this.namePro.length > 0 && this.technology.length > 0 && this.year != 0) {
-      this.service.setProject(new Project(this.idProject, this.namePro, this.technology, this.year))
+      this.service.setProject(new Project(this.idProject, this.namePro, this.technology, this.year), this.idProject)
       this.alertService.showAlert("Project updated", 3000, "alert-primary") //Method to call the alert
-      this.router.navigate(['/'])
+      this.router.navigate(['/projects'])
     }
     else if (this.namePro.length == 0) {
       this.alertService.showAlert("The field 'Project name' should be refilled", 4000, "alert-warning") //Method to call the alert

@@ -17,23 +17,15 @@ export class ServiceProyectsService {
    * Get projects from the database as Observable
    */
   getAllProjects(){
-
     return this.database.getProjectsFromFireBase()
   }
 
-  updateListProjects(projects : Project[]){
-    this.listProjects = projects
-  
-  }
-
-
   /**
-   * Add to the array a new project increasindg in one the id property
+   * Add to the array a new project increasing in one the id property
    */
   addToList(name: string, tecnology: string, year: number) {
-    let idProject: number = 0
-    idProject = this.listProjects.length + 1
-    this.listProjects.push(new Project(idProject, name, tecnology, year))
+    let idProject = this.listProjects.length + 1
+    this.listProjects.push(new Project(idProject, name, tecnology, year))    
     this.database.saveProjectsInFireBase(this.listProjects)
   }
 
@@ -42,16 +34,17 @@ export class ServiceProyectsService {
    * @param idProject This is the project id will be modified
    */
   getProject(idProject: number): Project {
-    let project = this.listProjects[idProject - 1]
-    return project
+    return this.listProjects[idProject - 1]
   }
 
   /**
-   * Set the values of the projects
+   * Set the values of the project as a setter function
    * @param project This is the object
+   * @param idProject This value comes from the component modify, with the current project
    */
-  setProject(project: Project): void {
+  setProject(project: Project, idProject : number) {
     this.listProjects[project.id - 1] = project
+    this.database.updateProjectFromFireBase(idProject, project)
   }
 
   /**

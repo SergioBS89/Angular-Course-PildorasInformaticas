@@ -9,7 +9,17 @@ import { ServiceProyectsService } from 'src/app/services/service-proyects.servic
   styleUrls: ['./add-project.component.css']
 })
 export class AddProjectComponent {
-
+    
+  /**
+   * With this we get the list of projects from the database dinamically 
+   * @ Object.values() to become an array the data form BBDD
+   */
+  ngOnInit() {
+    
+    this.service.getAllProjects().subscribe(myProjects => {
+    this.service.listProjects = Object.values(myProjects)
+    })
+  }
 
    //Inyection router class to enabled routing, and both services 
    constructor(private router: Router, private service : ServiceProyectsService, private alertService : AlertService) { }
@@ -29,7 +39,7 @@ export class AddProjectComponent {
     if(this.namePro.length > 0 && this.technology.length > 0 && this.year != 0){
      this.service.addToList(this.namePro,this.technology, this.year )
      this.alertService.showAlert("Project created successfully", 3000, "alert-primary") //Method to call the alert
-     this.router.navigate(['/'])
+     this.router.navigate(['/projects'])
     }
     else if(this.namePro.length == 0){
       this.alertService.showAlert("The field 'Project name' should be refilled", 4000, "alert-warning") //Method to call the alert
