@@ -34,6 +34,12 @@ export class ModiProjectComponent {
       this.idProject = this.activeRoute.snapshot.params['id']
 
       let project: Project = this.service.getProject(this.idProject)    
+      if(project.namePro.length == 0){
+        this.service.getAllProjects().subscribe(myProjects => {
+      this.listProjects = Object.values(myProjects)
+          project = this.listProjects[this.idProject]
+
+      }
 
       //This assign the values of the current project 
       this.namePro = project.namePro
