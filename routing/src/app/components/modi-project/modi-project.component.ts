@@ -39,9 +39,6 @@ export class ModiProjectComponent {
       this.namePro = project.namePro
       this.technology = project.tecnology
       this.year = project.year
-      this.listProjects.forEach(element => {
-        console.log(element)
-      });
   }
 
   /**

@@ -7,7 +7,6 @@
     <table class="table table-dark table-striped table-bordered">
         <thead>
             <tr>
-                <th class="col-1">Id</th>
                 <th class="col-3">Project name</th>
                 <th class="col-4">Tecnology used</th>
                 <th class="col-2">Year</th>
@@ -17,7 +16,7 @@
         </thead>
         <tbody *ngFor="let item of listProjects">
             <tr>
-                <td>{{item.id}}</td>
+                <!-- Comprobar que es cadena y sumar valor -->
                 <td>{{item.namePro}}</td>
                 <td>{{item.tecnology}}</td>
                 <td>{{item.year}}</td>

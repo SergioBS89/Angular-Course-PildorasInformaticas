@@ -24,7 +24,7 @@ export class ServiceProyectsService {
    * Add to the array a new project increasing in one the id property
    */
   addToList(name: string, tecnology: string, year: number) {
-    let idProject = this.listProjects.length + 1
+    let idProject = this.listProjects.length 
     this.listProjects.push(new Project(idProject, name, tecnology, year))    
     this.database.saveProjectsInFireBase(this.listProjects)
   }
@@ -34,7 +34,7 @@ export class ServiceProyectsService {
    * @param idProject This is the project id will be modified
    */
   getProject(idProject: number): Project {
-    return this.listProjects[idProject - 1]
+    return this.listProjects[idProject]
   }
 
   /**
@@ -43,7 +43,7 @@ export class ServiceProyectsService {
    * @param idProject This value comes from the component modify, with the current project
    */
   setProject(project: Project, idProject : number) {
-    this.listProjects[project.id - 1] = project
+    this.listProjects[project.id] = project
     this.database.updateProjectFromFireBase(idProject, project)
   }
 

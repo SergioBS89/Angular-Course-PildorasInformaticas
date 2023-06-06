@@ -24,7 +24,7 @@ export class DataBaseService {
   }
 
   updateProjectFromFireBase(idProject: number, project : Project){
-    let urlUpdate = 'https://projects-app-sbs-default-rtdb.europe-west1.firebasedatabase.app/data' + idProject + '.json'
+    let urlUpdate = 'https://projects-app-sbs-default-rtdb.europe-west1.firebasedatabase.app/data/' + idProject + '.json'
     this.httpClient.put(urlUpdate, project).subscribe({
       next: (res) => console.log('Project updated ' + res),
       error: (e) => console.log('Error detected ' + e),
