@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Project } from 'src/app/classes/proyecto.model';
 import { AlertService } from 'src/app/services/alert.service';
+import { DataBaseService } from 'src/app/services/data-base.service';
 import { ServiceProyectsService } from 'src/app/services/service-proyects.service';
 
 @Component({
@@ -17,35 +18,34 @@ export class ModiProjectComponent {
    * @param activeRoute This enebles de actives routes to get valued from the url
    * @param alertService This inyects the service alert
    */
-  constructor(private router: Router, private service: ServiceProyectsService, private activeRoute: ActivatedRoute, private alertService: AlertService) { }
+  constructor(private router: Router, private service: ServiceProyectsService, private activeRoute: ActivatedRoute, private alertService: AlertService){}
 
-  idProject: number = 0
-
-  listProjects: Project[] = []
 
   ngOnInit(): void {
 
     this.service.getAllProjects().subscribe(myProjects => {
       this.service.listProjects = Object.values(myProjects)
-      })
-      /**
-       * This get the id of the project from the url to be modificated
-       */
-      this.idProject = this.activeRoute.snapshot.params['id']
+    })
 
-      let project: Project = this.service.getProject(this.idProject)    
-      if(project.namePro.length == 0){
-        this.service.getAllProjects().subscribe(myProjects => {
-      this.listProjects = Object.values(myProjects)
-          project = this.listProjects[this.idProject]
+    /**
+     * This get the id of the project from the url to be modificated
+     */
+    this.idProject = this.activeRoute.snapshot.params['id']
 
-      }
+    let project = this.service.getProject(this.idProject)
 
-      //This assign the values of the current project 
-      this.namePro = project.namePro
-      this.technology = project.tecnology
-      this.year = project.year
+    if(project == undefined){
+      this.router.navigate(['/'])
+    }
+
+    //This assign the values of the current project 
+    this.namePro = project.namePro
+    this.technology = project.tecnology
+    this.year = project.year
   }
+
+  idProject: number = 0
+
 
   /**
    * List of properties of entity project
@@ -62,7 +62,7 @@ export class ModiProjectComponent {
     if (this.namePro.length > 0 && this.technology.length > 0 && this.year != 0) {
       this.service.setProject(new Project(this.idProject, this.namePro, this.technology, this.year), this.idProject)
       this.alertService.showAlert("Project updated", 3000, "alert-primary") //Method to call the alert
-      this.router.navigate(['/projects'])
+      this.router.navigate(['/'])
     }
     else if (this.namePro.length == 0) {
       this.alertService.showAlert("The field 'Project name' should be refilled", 4000, "alert-warning") //Method to call the alert

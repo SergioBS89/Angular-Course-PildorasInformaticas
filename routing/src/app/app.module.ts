@@ -18,8 +18,8 @@ import { DataBaseService } from './services/data-base.service';
  * Enrouting our App
  */
 const appRutas: Routes = [
-  { path: '', component: AddProjectComponent},
-  { path: 'projects', component: ProjectsComponent  },
+  { path: '', component: ProjectsComponent},
+  { path: 'add-project', component: AddProjectComponent},
   { path: 'update-project/:id', component: ModiProjectComponent },
   // Error page route (important! this path should be always the last one to work properly)
   { path: '**', component: ErrorPageComponent }

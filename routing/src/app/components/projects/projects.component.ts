@@ -38,7 +38,7 @@ export class ProjectsComponent {
    * Function to go to the screen add new project
    */
   addNewProject() {
-    this.router.navigate([''])
+    this.router.navigate(['/add-project'])
   }
 
   deleteProject(idProject: number) {
