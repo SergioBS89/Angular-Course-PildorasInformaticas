@@ -8,8 +8,9 @@ export class DataBaseService {
   constructor(private httpClient: HttpClient) { }
 
   urlFireBase: string = 'https://projects-app-sbs-default-rtdb.europe-west1.firebasedatabase.app/data.json'
+
   /**
-   * This service is connected with firebase to do a PUT
+   * CREATE
    * @param project 
    */
   saveProjectsInFireBase(project: Project[]) {
@@ -19,13 +20,34 @@ export class DataBaseService {
     });
   }
 
+  /**
+   * SELECT
+   * @returns 
+   */
   getProjectsFromFireBase() {
     return this.httpClient.get(this.urlFireBase)
   }
 
-  updateProjectFromFireBase(idProject: number, project : Project){
+  /**
+   * UPDATE
+   * @param idProject 
+   * @param project 
+   */
+  updateProjectFromFireBase(idProject: number, project: Project) {
     let urlUpdate = 'https://projects-app-sbs-default-rtdb.europe-west1.firebasedatabase.app/data/' + idProject + '.json'
     this.httpClient.put(urlUpdate, project).subscribe({
+      next: (res) => console.log('Project updated ' + res),
+      error: (e) => console.log('Error detected ' + e),
+    });
+  }
+
+  /**
+   * DELETE
+   * @param idProject 
+   */
+  deleteProjectFromFireBase(idProject: number) {
+    let urlDelete = 'https://projects-app-sbs-default-rtdb.europe-west1.firebasedatabase.app/data/' + idProject + '.json'
+    this.httpClient.delete(urlDelete).subscribe({
       next: (res) => console.log('Project updated ' + res),
       error: (e) => console.log('Error detected ' + e),
     });

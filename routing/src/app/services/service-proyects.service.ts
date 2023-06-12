@@ -52,13 +52,19 @@ export class ServiceProyectsService {
    * @param idProject Take the value id of the project to be removed
    */
   deleteProject(idProject: number): void {
-    this.listProjects.splice(idProject - 1, 1)
+    this.listProjects.splice(idProject, 1)
+    this.database.deleteProjectFromFireBase(idProject)
     //For iteration to reassign the values of each projects' id 
     for (let i = 0; i < this.listProjects.length; i++) {
-      this.listProjects[i].id = (i + 1)
+      if(this.listProjects[i].id == 0){
+        //keep the value as 0 for the first element
+        this.listProjects[i].id = (i)
+      }
+      this.listProjects[i].id = (i)
     }
+    //Update the database with the new position of array id's
+    this.database.saveProjectsInFireBase(this.listProjects)
   };
-
 }
 
 
